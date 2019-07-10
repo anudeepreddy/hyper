@@ -1,0 +1,13 @@
+image:
+  file: .gitpod.dockerfile
+ports:
+  - port: 6080
+    onOpen: open-preview
+  - port: 5900
+    onOpen: ignore
+  - port: 35900
+    onOpen: ignore
+tasks:
+  - init: yarn && gp sync-done yarn
+    command: yarn run dev
+  - command: gp sync-await yarn && yarn run app
